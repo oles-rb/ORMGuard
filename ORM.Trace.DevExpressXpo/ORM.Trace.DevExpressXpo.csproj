@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net10.0;net48</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>ORM.Trace</RootNamespace>
+    <AssemblyName>ORM.Trace.DevExpressXpo</AssemblyName>
+    <PackageId>ORM.Trace.DevExpressXpo</PackageId>
+    <Version>0.1.1</Version>
+    <Title>ORM Trace for DevExpress XPO</Title>
+    <Authors>ORM Trace</Authors>
+    <Company>ORM Trace</Company>
+    <Description>DevExpress XPO integration for detecting slow SQL, repeated queries, excessive database calls, and performance regressions with ORM Trace.</Description>
+    <Copyright>Copyright © 2026 ORM Trace</Copyright>
+    <PackageTags>devexpress;xpo;orm;sql;telemetry;observability;performance;n+1</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://ormtrace.dev</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>Expanded package documentation with setup, configuration, privacy, tracing, and troubleshooting guidance.</PackageReleaseNotes>
+    <PackageOutputPath>..\nuget</PackageOutputPath>
+    <PackageIcon>nuget_icon.png</PackageIcon>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <Deterministic>true</Deterministic>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(CI)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+    <None Include="nuget_icon.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ORM.Trace.Agent\ORM.Trace.Agent.csproj" />
+    <PackageReference Include="DevExpress.Xpo" Version="[26.1.4,27.0.0)" />
+  </ItemGroup>
+</Project>

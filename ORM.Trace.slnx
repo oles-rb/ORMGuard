@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="ORM.Trace.Agent/ORM.Trace.Agent.csproj" />
+  <Project Path="ORM.Trace.DevExpressXpo/ORM.Trace.DevExpressXpo.csproj" />
+  <Project Path="ORM.Trace.EFCore/ORM.Trace.EFCore.csproj" />
+</Solution>

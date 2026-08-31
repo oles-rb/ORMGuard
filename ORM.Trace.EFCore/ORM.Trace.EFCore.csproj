@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net10.0;net48</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>ORM.Trace</RootNamespace>
+    <AssemblyName>ORM.Trace.EntityFrameworkCore</AssemblyName>
+    <PackageId>ORM.Trace.EntityFrameworkCore</PackageId>
+    <Version>0.1.1</Version>
+    <Title>ORM Trace for Entity Framework Core</Title>
+    <Authors>ORM Trace</Authors>
+    <Company>ORM Trace</Company>
+    <Description>EF Core interceptor for detecting slow SQL, N+1 queries, excessive database calls, and performance regressions with ORM Trace.</Description>
+    <Copyright>Copyright © 2026 ORM Trace</Copyright>
+    <PackageTags>efcore;entity-framework-core;orm;sql;telemetry;observability;performance;n+1</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://ormtrace.dev</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>Expanded package documentation with setup, configuration, privacy, tracing, and troubleshooting guidance.</PackageReleaseNotes>
+    <PackageOutputPath>..\nuget</PackageOutputPath>
+    <PackageIcon>nuget_icon.png</PackageIcon>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <Deterministic>true</Deterministic>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(CI)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+    <None Include="nuget_icon.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ORM.Trace.Agent\ORM.Trace.Agent.csproj" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="[10.0.11,11.0.0)" Condition="'$(TargetFramework)' == 'net10.0'" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="[3.1.32,4.0.0)" Condition="'$(TargetFramework)' == 'net48'" />
+  </ItemGroup>
+</Project>
